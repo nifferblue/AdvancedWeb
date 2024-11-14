@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=t, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="form.css">
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="Home.html">Home</a>
+    <a href="arrays.html">Arrays</a>
+    <a href="jokeGenerator.html">Jokes</a>
+    <a href="form.html">Form</a>
+    <a href="events.html">Events</a>
+    <a href="index1.html">Courses</a>
+  </nav>
+
+  <section>
+    <h2>Basic Table</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr>
+          <td>John Doe</td>
+          <td>john@example.com</td>
+          <td>Hello,this is a message</td>
+        </tr>
+        <tr>
+          <td>Jane Smith</td>
+          <td>jane@example.com</td>
+          <td>Hello,this is a message</td>
+        </tr>
+      </tbody>
+      
+      
+    </table>
+  </section>
+  <section class="form-section">
+    <h2>Registration Form</h2>
+    <div class="form-container">
+      <form action="" id="myForm">
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <div class="gender-form">
+          <p>Gender:</p>
+          <!-- <label for="female">Female:</label> -->
+          <input type="radio" id="female" name="female" required>Female:
+  
+          <!-- <label for="male">Male:</label> -->
+          <input type="radio" id="male" name="male" required>Male:
+  
+          <!-- <label for="non-binary">Non-binary:</label> -->
+          <input type="radio" id="non-binary" name="non-binary" required>Non-binary:
+        </div>
+          <p>Major:</p>
+        <select name="major" id="major">
+          <option value="IST">CYBER SEC</option>
+          <option value="IST">DATA SCIENCE</option>
+          <option value="IST">SOFTWARE ENGINEERING</option>
+          <option value="IST">APPLICATIONS</option>
+          
+        </select>
+       
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Comment:</label>
+        <textarea  id="message" name="message" rows="4"></textarea>
+
+        <input type="submit" value="Submit">
+      </form>
+      <p id="formMessage" style="color: red;"></p>
+    </div>
+  </section>
+  
+</body>
+</html>
+

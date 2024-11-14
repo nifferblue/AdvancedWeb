@@ -1,0 +1,137 @@
+/* Container styling */
+body,html{
+  padding: 0;
+  margin: 0;
+  background-color: rgb(101, 90, 77);
+}
+
+
+
+#nav{
+  background-color: rgb(123, 113, 102);
+  overflow:hidden;
+  padding: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.2rem;
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+ 
+}
+#nav a{
+  text-decoration: none;
+  color: rgb(224, 210, 237);
+  padding: 5px 10px;
+}
+
+#nav a:hover{
+  color: rgb(79, 6, 73);
+  background-color: burlywood;
+}
+
+#tribute-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 20px; /* Space between sections */
+  text-align: center;
+}
+
+
+
+ul {
+  padding-left: 0; /* Remove default padding */
+  list-style-position: inside; /* Align bullet points with paragraph text */
+  margin-left: 0; /* Align list with paragraph */
+  text-align: left; /* Align text to the left */
+}
+
+
+/* Left section styling */
+#section_info1 {
+  flex: 1;
+  padding: 20px;
+}
+#section_info1 h2 {
+  padding-left: 0; /* Remove default padding */
+  list-style-position: inside; /* Align bullet points with paragraph text */
+  margin-left: 0; /* Align list with paragraph */
+  text-align: left; /* Align text to the left */
+}
+
+/* ul {
+  display: inline-block;
+  text-align: left;
+} */
+
+
+li {
+  padding-bottom: 10px;
+  font-size: 1.1em;
+}
+
+/* Right section styling */
+#section_2 {
+  flex: 1.5;
+  padding: 20px;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+caption {
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 10px;
+  color: #333;
+}
+
+thead th {
+  background-color: #6c757d; /* Dark header color */
+  color: white;
+  padding: 12px;
+  font-size: 1.1em;
+}
+
+tbody td {
+  padding: 12px;
+  text-align: left;
+  font-size: 1em;
+}
+
+/* Alternating row colors */
+.rowcolor1 {
+  background-color: rgb(151, 176, 193); /* Light gray */
+}
+
+.rowcolor2 {
+  background-color: rgb(185, 179, 171); /* Slightly darker gray */
+}
+
+/* General cell styling */
+td, th {
+  border: 1px solid #dee2e6;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  #tribute-info {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  #section_info1, #section_2 {
+    flex: 1;
+    padding: 10px;
+  }
+
+  table {
+    font-size: 0.9em; /* Adjust font size for smaller screens */
+  }
+}

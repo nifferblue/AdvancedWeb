@@ -1,0 +1,52 @@
+/* *{
+  box-sizing: border-box;
+ 
+} */
+body,html{
+  /* padding: 0;
+  margin: 0; */
+  background-color: rgb(101, 90, 77);
+}
+
+
+.jokess{
+  background-color: rgb(106, 86, 65);
+  height: 300px;
+  width: 200px;
+  padding: 20px;
+  box-shadow:5px 3px 10px   rgb(14, 25, 29) ;
+  margin-top: 20px;
+}
+#generateJoke{
+  border: none;
+  padding: 5px;
+  border-radius: 8px;
+  background-color: rgb(179, 129, 76);
+  color: white;
+  box-shadow:1px 1px 5px  lightblue ;
+}
+
+
+
+#nav{
+  background-color: rgb(123, 113, 102);
+  overflow:hidden;
+  padding: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.2rem;
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+ 
+}
+#nav a{
+  text-decoration: none;
+  color: rgb(224, 210, 237);
+  padding: 5px 10px;
+}
+
+#nav a:hover{
+  color: rgb(79, 6, 73);
+  background-color: burlywood;
+}
+
