@@ -1,0 +1,37 @@
+*{
+  box-sizing: border-box;
+ 
+}
+body,html{
+  padding: 0;
+  margin: 0;
+  background-color: rgb(107, 142, 177);
+}
+#header{
+  text-align: center;
+  padding: 10px;
+  background-color:rgb(76, 111, 146) ;
+  color: rgb(64, 17, 107);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#header p{
+  font-size: 1.5rem;
+}
+
+#nav a{
+  text-decoration: none;
+  color: rgb(217, 198, 235);
+  padding: 5px 10px;
+}
+
+#nav a:hover{
+  color: aquamarine;
+  background-color: burlywood;
+}
+@media screen  and (max-width:800){
+  #nav{
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,31 +1,13 @@
-/* *{
+*{
   box-sizing: border-box;
  
-} */
+}
 body,html{
-  /* padding: 0;
-  margin: 0; */
+  padding: 0;
+  margin: 0;
   background-color: rgb(101, 90, 77);
 }
 
-
-.jokess{
-  background-color: rgb(106, 86, 65);
-  height: 300px;
-  width: 200px;
-  padding: 20px;
-  box-shadow:5px 3px 10px   rgb(14, 25, 29) ;
-  margin-top: 20px;
-  transform: translate(200%,50%);
-}
-#generateJoke{
-  border: none;
-  padding: 5px;
-  border-radius: 8px;
-  background-color: rgb(179, 129, 76);
-  color: white;
-  box-shadow:1px 1px 5px  lightblue ;
-}
 
 
 
@@ -38,6 +20,7 @@ body,html{
   position: sticky;
   z-index: 1000;
   top: 0;
+  margin-bottom: 20px;
  
 }
 #nav a{
@@ -50,4 +33,3 @@ body,html{
   color: rgb(79, 6, 73);
   background-color: burlywood;
 }
-

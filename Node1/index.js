@@ -16,7 +16,4 @@ create folder
 initialize node project in the folder with 'npm init'
 install express with 'npm install express'
 
-
-
-
  */

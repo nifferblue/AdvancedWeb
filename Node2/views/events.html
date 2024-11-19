@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="events.css">
+  <script src="events.js" defer></script>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="Home.html">Home</a>
+    <a href="arrays.html">Arrays</a>
+    <a href="jokeGenerator.html">Jokes</a>
+    <a href="form.html">Form</a>
+    <a href="events.html">Events</a>
+    <a href="index1.html">Courses</a>
+  </nav>
+
+  <button type="button" onclick="document.write(5+6)">
+    Click Me
+  </button>
+  <p id="demo">
+
+  </p>
+  <button type="button" onclick="document.getElementById('demo').innerHTML=50+6;">Click to display data using innerhtml</button><br><br>
+  <button ondblclick="window.alert('You clicked me😊')">Hey Click Me</button><br><br>
+  <button onkeydown="document.write('Play')">😎Key Down</button><br><br>
+  <button ondrag="document.write('Play')">😎Drag</button><br><br>
+
+  <p id="demo2">This will change when the button is clicked</p>
+  <button type="button" onclick=myFunction()>Click to change</button>
+
+  <!-- Button onmouse over the btn shows a promptbox that will pick your name and display it in a paragraph -->
+
+  <button onmouseover="window.alert(greet('Niffer'))">Mouse Over</button>
+
+</body>
+</html>
