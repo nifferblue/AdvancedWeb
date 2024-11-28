@@ -1,33 +1,26 @@
 const express = require('express');
 const path = require('path');
+const { MongoClient } = require('mongodb');
 
 const app = express();
 
-const {MongoClient} = require('mongodb')
+const url = "mongodb://localhost:27017";
+const dbName = "Project4035";
+let db;
 
-const url = "mongodb://localhost:27017"
-
-async function main() {
+// Connect to MongoDB and set up the database
+async function connectToDatabase() {
   const client = new MongoClient(url);
-
-  await client.connect();
-  console.log('Connected successfully to the server')
+  try {
+    await client.connect();
+    console.log('Connected to MongoDB');
+    db = client.db(dbName);
+  } catch (err) {
+    console.error('Error connecting to MongoDB:', err);
+  }
 }
 
-const databaseList = await client.db().admin().listDatabases();
-
-console.log('Databases');
-
-databaseList.databases.array.forEach(db => {
-  console.log(db.name)
-  
-});
-
-await client.close()
-
-
-
-
+connectToDatabase().catch(console.error);
 
 // Middleware to parse form data
 app.use(express.urlencoded({ extended: true }));
@@ -35,12 +28,11 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static files from 'public' folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve the project pages
 app.get('/project', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'Home.html'));
 });
 
-app.get('/arrays', (req, res) => {
+app.get('/project/arrays', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'arrays.html'));
 });
 
@@ -53,51 +45,79 @@ app.get('/project/form', (req, res) => {
 });
 
 app.get('/project/index', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'index.html'));
+  res.sendFile(path.join(__dirname, 'views', 'index1.html'));
 });
 
 app.get('/project/jokeGenerator', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'jokeGenerator.html'));
 });
 
-app.get('/project/Main', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'Main.html'));
-});
+
+
+
 
 // Serve login and signup pages
-app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'loginSignup.html')); // Assume the file is loginSignup.html
+app.get('/project/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'loginSignup.html'));
 });
 
-app.get('/signup', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'loginSignup.html')); // Same page, just a different link
-});
-
-// Handle login request
-app.post('/login', (req, res) => {
-  const { username, password } = req.body;
-  console.log('Login attempt:', { username, password });
-
-  // For demonstration purposes, you could add validation here (e.g., check against a database)
-  if (username === 'user' && password === 'password') {
-    res.send('Login successful');
-  } else {
-    res.send('Invalid credentials');
-  }
+app.get('/project/signup', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'loginSignup.html'));
 });
 
 // Handle signup request
-app.post('/signup', (req, res) => {
+app.post('/project/signup', async (req, res) => {
   const { username, password } = req.body;
-  console.log('Sign Up attempt:', { username, password });
 
-  // Here, you'd typically save the user info to a database
-  res.send(`Signup successful for user: ${username}`);
+  try {
+    // Insert the user data into the 'users' collection
+    const result = await db.collection('users').insertOne({ username, password });
+    console.log('User signed up:', result.insertedId);
+    res.send(`Signup successful for user: ${username}`);
+  } catch (err) {
+    console.error('Error during signup:', err);
+    res.status(500).send('An error occurred during signup');
+  }
 });
+
+// Handle login request
+app.post('/project/login', async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    // Find the user in the 'users' collection
+    const user = await db.collection('users').findOne({ username, password });
+    if (user) {
+      res.send('Login successful');
+    } else {
+      res.send('Invalid credentials');
+    }
+  } catch (err) {
+    console.error('Error during login:', err);
+    res.status(500).send('An error occurred during login');
+  }
+});
+
+app.post('/project/form',async(req,res)=>{
+  const{name, gender, major, email, message } = req.body;
+
+  try {
+    const result = await db.collection('formSubmissions').insertOne({ name, gender, major, email, message  });
+    console.log('Form submitted:', result.insertedId);
+
+        // Respond with a success message
+        res.send(`Form Submitted Successfully`);
+
+  } catch (error) {
+
+    console.error('Error during form submission:', err);
+    res.status(500).send('An error occurred while processing your form.');
+    
+  }
+
+})
 
 // Start the server
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
 });
-
-

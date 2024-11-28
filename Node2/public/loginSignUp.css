@@ -1,0 +1,39 @@
+body,html{
+  /* padding: 0;
+  margin: 0; */
+  background-color: rgb(101, 90, 77);
+}
+
+.auth{
+  background-color: rgb(106, 86, 65);
+  height: 350px;
+  width: 200px;
+  padding: 20px;
+  box-shadow:5px 3px 10px   rgb(14, 25, 29) ;
+  margin-top: 20px;
+  transform: translate(200%,50%);
+  
+}
+
+#subBtn{
+  border: none;
+  width: 100px;
+  padding: 5px;
+  border-radius: 8px;
+  background-color: rgb(179, 129, 76);
+  color: white;
+  box-shadow:1px 1px 5px  lightblue ;
+  transform: translate(50%,4%);
+  
+}
+
+form input[type="text"],
+form input[type="password"] {
+  width: 100%; 
+  padding: 5px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; 
+  font-size: 14px;
+}
